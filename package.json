@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/salvodamore2001/CookBook-Official/issues"
   },
-  "homepage": "https://github.com/salvodamore2001/CookBook-Official#readme"
+  "homepage": "https://github.com/salvodamore2001/CookBook-Official#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

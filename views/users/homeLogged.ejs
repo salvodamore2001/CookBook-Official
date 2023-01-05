@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookBook</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!--Font awsome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="/assets/styleHome.css">
+
+    <script>
+        $(function () {
+            $(".toggle").on("click", function () {
+                if ($(".item").hasClass("active")) {
+                    $(".item").removeClass("active");
+                }
+                else {
+                    $(".item").addClass("active");
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+
+    <!--Navigation Bar-->
+
+    <nav>
+        <ul class="menu">
+            <li class="logo">
+                <h1>Cook<span>Book</span></h1>
+            </li>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">About</a></li>
+            <li class="item"><a href="#">Contatct</a></li>
+            <li class="item button"><a href="/logout">Logout</a></li>
+            <!--<li class="item button secondary"><a href="#">Sign up</a></li>-->
+            <li class="toggle"><span class="bars"></span></li>
+        </ul>
+    </nav>
+
+    <h1>Ciao Ciao Hi LogOut</h1>
+
+    <!--Footer-->
+    <main class="main_footer">
+        <footer>
+            <div class="container_footer">
+                <div class="content_footer">
+                    <div class="profil">
+                        <div class="logo_area">
+                            <h4 class="logo_name">Cook<span class="logo_name2">Book</span></h4>
+                        </div>
+                        <div class="desc_area">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, impedit animi alias aspernatur quidem voluptatibus.</p>
+                        </div>
+                        <div class="social_media">
+                            <a href="#"><i class='bx bxl-instagram'></i></a>
+                            <a href="#"><i class='bx bxl-github'></i></a>
+                            <a href="#"><i class='bx bxl-facebook-square'></i></a>
+                        </div>
+                    </div>
+                    <div class="service_area">
+                        <ul class="service_header">
+                            <li class="service_name">Services</li>
+                            <li><a href="#">CookBook online</a></li>
+                            <li><a href="#">New cooking ideas</a></li>
+                            <li><a href="#">Food lovers community</a></li>
+                        </ul>
+                        <ul class="service_header">
+                            <li class="service_name">Company</li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">+39 392 789 5123</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="footer_bottom">
+                    <div class="copy_right">
+                        <i class='bx bxs-copyright'></i>
+                        <span  id="span_footer">2022 CookBook</span>
+                    </div>
+                    <div class="tou">
+                       <a href="#">Term of use</a> 
+                       <a href="#">Privacy of Use</a> 
+                       <a href="#">Cookie</a> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

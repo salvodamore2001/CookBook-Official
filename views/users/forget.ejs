@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Icon CSS-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--Login style css-->
+    <link rel="stylesheet" href="/assets/styleLogin.css">
+
+    <title>Forget</title>
+</head>
+<body>
+    
+<div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Forget</span>
+
+                <%
+
+                if(typeof message !== 'undefined'){
+                  %>
+                 <h4><%= message %></h4> 
+                  <%
+                }
+
+                %>
+                <form action="/forget" method="POST">
+                    <div class="input-field">
+                        <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+
+
+
+                    <div class="input-field button">
+                        <!--<input type="button" value="Login Now">-->
+                        <button type="submit" id="button">Send Reset Link</button>
+                    </div>
+                </form>
+            </div>
+
+</body>
+</html>

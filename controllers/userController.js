@@ -201,8 +201,8 @@ const loadHome = async(req,res)=>{
 const loadHomeLogged = async (req,res)=>{
 
     try {
-        
-        res.render('homeLogged');
+        const userData = await User.findById({_id:req.session.user_id });
+        res.render('homeLogged',{user:userData});
 
     } catch (error) {
         console.log(error.message);

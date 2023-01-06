@@ -10,7 +10,7 @@ const userRoute = require('./routes/userRoute');
 app.use('/',userRoute);
 
 const recipeRoute = require('./routes/recipeRoute');
-app.use('/', recipeRoute);
+app.use('/recipes', recipeRoute);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

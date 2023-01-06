@@ -23,6 +23,19 @@ const loadRecipe = async(req,res)=>{
 
 }
 
+const newRecipe = async(req,res)=>{
+
+try {
+    
+    res.render('newRecipePage');
+
+} catch (error) {
+    console.log(error.message);
+}
+
+}
+
 module.exports = {
-    loadRecipe
+    loadRecipe,
+    newRecipe
 }

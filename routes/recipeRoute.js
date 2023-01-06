@@ -17,8 +17,11 @@ recipe_route.use(bodyParser.urlencoded({extended:true}))
 const multer = require("multer");
 
 const recipeController = require('../controllers/recipeController');
+const userController = require("../controllers/userController");
 const path = require("path");
 
-recipe_route.get('/recipes',recipeController.loadRecipe);
+recipe_route.get('/',recipeController.loadRecipe);
+
+recipe_route.get('/new',recipeController.newRecipe);
 
 module.exports = recipe_route;

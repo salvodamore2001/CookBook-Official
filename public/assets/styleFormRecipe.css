@@ -1,0 +1,27 @@
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #b40000 ;
+    border-color: black;
+    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+}
+
+.btn-outline-primary {
+    color: #fff;
+    background-color: #b40000;
+    border-color: black;
+  }
+
+  .btn-outline-primary:hover,.btn-primary:hover {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: black;
+  }
+  .fw-bold{
+    color: red;
+  }
+  body{
+    background-image: url(../img/i-like-food.svg);
+  }
+  .lead{
+    color: #ff0000;
+  }

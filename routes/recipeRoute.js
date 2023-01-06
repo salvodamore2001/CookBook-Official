@@ -24,4 +24,6 @@ recipe_route.get('/',recipeController.loadRecipe);
 
 recipe_route.get('/new',recipeController.newRecipe);
 
+recipe_route.post('/submit-recipe',recipeController.insertRecipe);
+
 module.exports = recipe_route;

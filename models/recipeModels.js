@@ -4,19 +4,23 @@ const recipeSchema = new mongoose.Schema({
 
     name:{
         type:String,
-        required: 'This fild is required'
+        required:true
     },
     description:{
         type:String,
-        required: 'This fild is required'
+        required:true
     },
     ingredients:{
-        type:Array,
-        required: 'This fild is required'
+        type:String,
+        required:true
     },
     image:{
         type:String,
-        required: 'This fild is required'
+        required:true
+    },
+    createAt:{
+        type: Date,
+        default: Date.now
     }
 });
 

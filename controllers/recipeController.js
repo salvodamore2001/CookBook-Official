@@ -35,7 +35,22 @@ try {
 
 }
 
+const insertRecipe = async(req,res)=>{
+
+try {
+    
+    const recipe = new Recipe({
+
+    });
+
+} catch (error) {
+    console.log(error.message);
+}
+
+}
+
 module.exports = {
     loadRecipe,
-    newRecipe
+    newRecipe,
+    insertRecipe
 }

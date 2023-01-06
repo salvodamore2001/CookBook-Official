@@ -43,4 +43,8 @@ user_route.get('/forget-password',auth.isLogout,userController.forgetPasswordLoa
 
 user_route.post('/forget-password',userController.resetPassword);
 
+user_route.get('/edit',auth.isLogin,userController.editLoad);
+
+user_route.post('/edit',userController.updateProfile);
+
 module.exports = user_route;

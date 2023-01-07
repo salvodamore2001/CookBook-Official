@@ -316,6 +316,43 @@ try {
 
 }
 
+
+/*const editLoad = async(req,res)=>{
+
+    try {
+        
+        const id = req.query.id;
+
+        const userData = await User.findById({_id:id});
+
+        if(userData){
+        res.render('edit',{user:userData});
+        }
+        else {
+            res.redirect('/home');
+        }
+
+    } catch (error) {
+        console.log(error.message);
+    }
+    
+    }
+
+    const updateProfile = async (req,res)=>{
+        try {
+            const userData = await User.findOneAndUpdate({_id:req.query.id},{$set: {'nickname':req.body.nickname}});
+            
+            res.redirect('/home');
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }*/
+
+
+
+
+
 module.exports = {
     loadRegister,
     insertUser,
@@ -329,4 +366,6 @@ module.exports = {
     forgetVerify,
     forgetPasswordLoad,
     resetPassword
+    //editLoad,
+    //updateProfile
 }

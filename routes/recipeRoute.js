@@ -20,10 +20,7 @@ const recipeController = require('../controllers/recipeController');
 const userController = require("../controllers/userController");
 const path = require("path");
 
-recipe_route.get('/',recipeController.loadRecipe);
-
 recipe_route.get('/new',recipeController.newRecipe);
 
-recipe_route.post('/submit-recipe',recipeController.insertRecipe);
 
 module.exports = recipe_route;

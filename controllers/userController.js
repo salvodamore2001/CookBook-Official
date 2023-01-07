@@ -331,9 +331,17 @@ try {
         }
     }*/
 
+    const loadRecipeDashboard = async(req,res)=>{
+        
+        try {
+            
+            res.render('newRecipePage');
 
+        } catch (error) {
+            console.log(error.message);
+        }
 
-
+    }
 
 module.exports = {
     loadRegister,
@@ -347,7 +355,8 @@ module.exports = {
     forgetLoad,
     forgetVerify,
     forgetPasswordLoad,
-    resetPassword
+    resetPassword,
+    loadRecipeDashboard
     //editLoad,
     //updateProfile
 }

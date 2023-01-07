@@ -187,28 +187,10 @@ const verifyLogin = async(req,res)=>{
 }
 
 const loadHome = async(req,res)=>{
-    /*
+    
     try {
         
-        res.render('home');
-
-    } catch (error) {
-        console.log(error.message);
-    }
-    */
-    try {
-        
-        const recipes = [{
-            title: 'Recipe Test Title',
-            createdAt: new Date(),
-            description: 'Recipe Test Description'
-        },
-    {
-        title: 'Recipe Test2 Title',
-        createdAt: new Date(),
-        description: 'Recipe Test2 Description'
-        }]
-        res.render('home', {recipes: recipes});
+        res.render('index');
 
     } catch (error) {
         console.log(error.message);
@@ -219,7 +201,7 @@ const loadHomeLogged = async (req,res)=>{
 
     try {
         const userData = await User.findById({_id:req.session.user_id });
-        res.render('homeLogged',{user:userData});
+        res.render('indexLogged',{user:userData});
 
     } catch (error) {
         console.log(error.message);

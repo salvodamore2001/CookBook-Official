@@ -335,11 +335,19 @@ hr {
 
 .tou a {
     color: #828282;
-    margin-left: 1.5rem;
+    display: flex;
+    margin-left: 0.5cm;
 }
 
 .tou a:hover {
     color: red;
+}
+.aboutus {
+    color: #828282;
+    text-align: center;
+    margin-left: 1cm;
+
+
 }
 
 /* media query footer */

@@ -49,9 +49,10 @@
         </ul>
     </nav>
 
-    <form action="" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="user_id" value="<%=user._id %>">
+    <form action="" method="POST" enctype="multipart/form-data">
+    
         <input type="text" name="nickname" value="<%=user.nickname %>" placeholder="Enter your nickname" required>
+        <input type="text" name="id" value="<%=user._id %>">
         <br><br>
         <input type="text" name="email" value="<%=user.email %>" placeholder="Enter your email" required>
         <br><br>

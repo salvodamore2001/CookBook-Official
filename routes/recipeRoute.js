@@ -1,29 +1,15 @@
-const express = require("express");
+const express = require('express');
 const recipe_route = express();
-const session = require("express-session");
 
-const config = require("../config/config");
-
-recipe_route.use(session({secret:config.sessionSecret}));
-
-
-recipe_route.set('view engine','ejs');
+recipe_route.set('view engine', 'ejs');
 recipe_route.set('views','./views/users');
 
-const bodyParser = require('body-parser');
-recipe_route.use(bodyParser.json());
-recipe_route.use(bodyParser.urlencoded({extended:true}))
+recipe_route.use(express.static('public'));
 
-const multer = require("multer");
+const auth = require("../middleware/auth");
 
 const recipeController = require('../controllers/recipeController');
-const userController = require("../controllers/userController");
-const path = require("path");
 
-recipe_route.get('/',recipeController.loadRecipe);
-
-recipe_route.get('/new',recipeController.newRecipe);
-
-recipe_route.post('/submit-recipe',recipeController.insertRecipe);
+recipe_route.get('/recipes',recipeController.loadRecipe);
 
 module.exports = recipe_route;

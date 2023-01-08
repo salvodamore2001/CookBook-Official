@@ -10,9 +10,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styleFormRecipe.css">
-    <title>Document</title>
+    <title>Submit Your Recipe - CookBook</title>
 </head>
 <body>
-    <%- include('FormFields') %>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Submit Your Recipe</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead">Share your amazing recipies with thousands of web developers accross the world. Fill our form to get started.</p>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+      
+        <div class="col-8">
+      
+          <form action="/public-recipe" method="POST" >
+          
+            <div class="row g-3">
+      
+              <div class="col-12">
+                <label for="title" class="form-label">Recipe Name</label>
+                <input type="text" name="title" id="title" class="form-control" required>
+              </div>
+              
+              <div class="col-12">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+              </div>
+      
+              <div class="col-12">
+                <label for="ingredients" class="form-label">Ingredients</label><br>
+                <small>Example: Ice</small>
+                <div class="ingredientList">
+                  <div class="ingredeintDiv mb-1">
+                    <input type="text" name="ingredients" id="ingredients" class="form-control">
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-12">
+                <label for="recipe_image">Product Image</label>
+                <input type="file" class="form-control" name="filename">
+              </div>
+      
+              <div class="col-12">
+                <a href="#" class="btn btn-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Submit Recipe</button>
+              </div>
+      
+            </div>
+          
+          </form>
+      
+        </div>
+      </div>
 </body>
 </html>

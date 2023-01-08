@@ -7,6 +7,7 @@
 body {
     font-family: sans-serif;
     min-height: 100vh;
+    background-image: url(../img/i-like-food.svg);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins:wght@300;400;500;600&family=Roboto&display=swap');
@@ -335,11 +336,19 @@ hr {
 
 .tou a {
     color: #828282;
-    margin-left: 1.5rem;
+    display: flex;
+    margin-left: 0.5cm;
 }
 
 .tou a:hover {
     color: red;
+}
+.aboutus {
+    color: #828282;
+    text-align: center;
+    margin-left: 1cm;
+
+
 }
 
 /* media query footer */

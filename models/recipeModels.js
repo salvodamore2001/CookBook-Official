@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const recipeSchema = new mongoose.Schema({
 
-    name:{
+    title:{
         type:String,
         required:true
     },
@@ -14,13 +14,9 @@ const recipeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    image:{
+    recipe_image:{
         type:String,
         required:true
-    },
-    createAt:{
-        type: Date,
-        default: Date.now
     }
 });
 

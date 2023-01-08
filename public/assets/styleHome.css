@@ -229,7 +229,7 @@ footer {
 .container_footer {
     max-width: 1240px;
     padding: 30px 40px;
-    margin: auto;
+    margin:auto;
 }
 
 .content_footer {
@@ -348,7 +348,8 @@ hr {
 .aboutus {
     color: #828282;
     text-align: center;
-    margin-left: 1cm;
+    margin-left: 1.5cm;
+    margin-right: 1cm;
 
 
 }

@@ -352,7 +352,7 @@ try {
                 title: req.body.title,
                 description: req.body.description,
                 ingredients: req.body.ingredients,
-                recipe_image: req.file.filename
+                recipe_image: res.file.recipe_image
             });
 
             const recipeData = await recipe.save();

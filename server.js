@@ -9,6 +9,10 @@ const app = express();
 const userRoute = require('./routes/userRoute');
 app.use('/',userRoute);
 
+//for recipe routes
+const recipeRoute = require('./routes/recipeRoute');
+app.use('/',recipeRoute);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(3000,function(){

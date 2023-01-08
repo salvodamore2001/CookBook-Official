@@ -356,8 +356,12 @@ try {
             });
 
             const recipeData = await recipe.save();
-
-            res.render('newRecipePage',{message:'Recipe added successfully!!'});
+            if(recipeData){
+                res.render('newRecipePage',{message:'Recipe added successfully!!'});
+            }
+            else{
+                res.render('newRecipePage',{message:'Error!!'});
+            }
 
         } catch (error) {
             console.log(error.message);

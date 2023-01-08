@@ -24,7 +24,7 @@
       
         <div class="col-8">
       
-          <form action="/public-recipe" method="POST" >
+          <form action="/public-recipe" method="POST" enctype="multipart/form-data" >
           
             <div class="row g-3">
       
@@ -50,11 +50,11 @@
       
               <div class="col-12">
                 <label for="recipe_image">Product Image</label>
-                <input type="file" class="form-control" name="recipe_image">
+                <input type="file" class="form-control" name="recipe_image" id="recipe_image" required>
               </div>
       
               <div class="col-12">
-                <a href="#" class="btn btn-primary">Cancel</a>
+                <a href="/recipes" class="btn btn-primary">Show all recipes</a>
                 <button type="submit" class="btn btn-primary">Submit Recipe</button>
               </div>
       

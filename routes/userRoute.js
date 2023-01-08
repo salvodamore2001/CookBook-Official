@@ -34,6 +34,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage});
 
+user_route.use(express.static(__dirname + '/public'));
+user_route.use('/img', express.static('img'));
+
 user_route.get('/register',auth.isLogout,userController.loadRegister);
 
 user_route.post('/register',userController.insertUser);
@@ -63,6 +66,6 @@ user_route.post('/forget-password',userController.resetPassword);
 
 user_route.get('/public-recipe',userController.loadRecipeDashboard);
 
-user_route.post('/public-recipe',upload.single("recipe_image"),userController.addRecipe);
+user_route.post('/public-recipe',upload.single('recipe_image'),userController.addRecipe);
 
 module.exports = user_route;

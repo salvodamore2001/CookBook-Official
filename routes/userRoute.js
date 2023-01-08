@@ -20,6 +20,23 @@ const multer = require("multer");
 const userController = require("../controllers/userController");
 const path = require("path");
 
+user_route.use(express.static('public'));
+
+const storage = multer.diskStorage({
+    destination:function(req,file, cb){
+        cb(null,path.join(__dirname,'../public/img'));
+    },
+    filename:function(req,file,cb){
+        const name = Date.now()+'-'+file.originalname;
+        cb(null,name);
+    }
+});
+
+const upload = multer({storage:storage});
+
+user_route.use(express.static(__dirname + '/public'));
+user_route.use('/img', express.static('img'));
+
 user_route.get('/register',auth.isLogout,userController.loadRegister);
 
 user_route.post('/register',userController.insertUser);
@@ -48,5 +65,7 @@ user_route.post('/forget-password',userController.resetPassword);
 //user_route.post('/edit',userController.updateProfile);
 
 user_route.get('/public-recipe',userController.loadRecipeDashboard);
+
+user_route.post('/public-recipe',upload.single('recipe_image'),userController.addRecipe);
 
 module.exports = user_route;

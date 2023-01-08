@@ -1,4 +1,5 @@
 const User = require('../models/userModels');
+const Recipe = require('../models/recipeModels');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 
@@ -343,6 +344,31 @@ try {
 
     }
 
+    const addRecipe = async(req,res)=>{
+        
+        try {
+            
+            const recipe = new Recipe({
+                title: req.body.title,
+                description: req.body.description,
+                ingredients: req.body.ingredients,
+                recipe_image: req.file.filename
+            });
+
+            const recipeData = await recipe.save();
+            if(recipeData){
+                res.render('newRecipePage',{message:'Recipe added successfully!!'});
+            }
+            else{
+                res.render('newRecipePage',{message:'Error!!'});
+            }
+
+        } catch (error) {
+            console.log(error.message);
+        }
+
+    }
+
 module.exports = {
     loadRegister,
     insertUser,
@@ -356,7 +382,8 @@ module.exports = {
     forgetVerify,
     forgetPasswordLoad,
     resetPassword,
-    loadRecipeDashboard
+    loadRecipeDashboard,
+    addRecipe
     //editLoad,
     //updateProfile
 }

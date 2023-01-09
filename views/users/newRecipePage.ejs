@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styleFormRecipe.css">
-    <title>Submit Your Recipe - CookBook</title>
+    <title>CookBook - Submit Your Recipe -</title>
 </head>
 <body>
     <div class="px-4 py-5 my-5 text-center">
@@ -49,8 +49,9 @@
               </div>
       
               <div class="col-12">
-                <label for="recipe_image">Product Image</label>
-                <input type="file" class="form-control" name="recipe_image" id="recipe_image" required>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
+                  Upload Image
+                </button>
               </div>
       
               <div class="col-12">
@@ -64,5 +65,27 @@
       
         </div>
       </div>
+
+
+      <!-- Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

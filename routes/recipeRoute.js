@@ -9,6 +9,7 @@ recipe_route.use(express.static('public'));
 const auth = require("../middleware/auth");
 
 const recipeController = require('../controllers/recipeController');
+const userController = require('../controllers/userController');
 
 recipe_route.get('/recipes',recipeController.loadRecipe);
 

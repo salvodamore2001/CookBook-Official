@@ -17,6 +17,10 @@ const recipeSchema = new mongoose.Schema({
     recipe_image:{
         type:String,
         required:true
+    },
+    comments:{
+        type:Object,
+        default:{}
     }
 });
 

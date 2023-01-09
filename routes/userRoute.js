@@ -18,6 +18,7 @@ user_route.use(bodyParser.urlencoded({extended:true}))
 const multer = require("multer");
 
 const userController = require("../controllers/userController");
+const recipeController = require("../controllers/recipeController");
 const path = require("path");
 
 user_route.use(express.static('public'));

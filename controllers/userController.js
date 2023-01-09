@@ -351,8 +351,7 @@ try {
             const recipe = new Recipe({
                 title: req.body.title,
                 description: req.body.description,
-                ingredients: req.body.ingredients,
-                recipe_image: req.file.filename
+                ingredients: req.body.ingredients
             });
 
             const recipeData = await recipe.save();
@@ -369,6 +368,10 @@ try {
 
     }
 
+    const uploadRecipeImage = async(req,res)=>{
+        
+    }
+
 module.exports = {
     loadRegister,
     insertUser,
@@ -383,7 +386,8 @@ module.exports = {
     forgetPasswordLoad,
     resetPassword,
     loadRecipeDashboard,
-    addRecipe
+    addRecipe,
+    uploadRecipeImage
     //editLoad,
     //updateProfile
 }

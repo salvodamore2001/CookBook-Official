@@ -66,10 +66,10 @@ user_route.post('/forget-password',userController.resetPassword);
 
 //user_route.post('/edit',userController.updateProfile);
 
-user_route.get('/public-recipe',userController.loadRecipeDashboard);
+user_route.get('/public-recipe',auth.isLogin,userController.loadRecipeDashboard);
 
-user_route.post('/public-recipe',upload.single('image'),userController.addRecipe);
+user_route.post('/public-recipe',auth.isLogin,upload.single('image'),userController.addRecipe);
 
-user_route.post('/upload-post-image',upload.single('image'),userController.uploadRecipeImage);
+user_route.post('/upload-post-image',auth.isLogin,upload.single('image'),userController.uploadRecipeImage);
 
 module.exports = user_route;

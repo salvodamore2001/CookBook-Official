@@ -73,6 +73,13 @@
             </div>
           </form>
           <!--END FORM-->
+          <%
+          if(typeof message !== 'undefined'){
+            %>
+            <p style="color: green;"><%= message %></p>
+            <%
+          }
+          %>
         </div>
       </div>
 
@@ -109,7 +116,7 @@ $(document).ready(function(){
 
       $.ajax({
           url:"/upload-post-image",
-          type:"POST",
+          type:"post",
           data: new FormData(this),
           contentType:false,
           cache:false,

@@ -19,30 +19,41 @@
     <title>CookBook - Recipes</title>
 </head>
 <%- include('../layouts/navbar.ejs') %>
-    <div class="container px-4 px-lg-5">
-        <% if(recipes.length> 0){
 
-            for(let i=0; i < recipes.length; i++){ %>
+
+    <div class="container px-4 px-lg-5">
+        <% 
+        if(recipes.length> 0){
+          
+            for(let i=0; i < recipes.length; i++){ 
+
+                %>
                 <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                    <div class="col-lg-7"><img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Error"
-                            class="img-fluid rounded mb-4 mb-lg-0"></div>
+                    <div class="col-lg-7"><img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Error" class="img-fluid rounded mb-4 mb-lg-0"></div>
                     <div class="col-lg-5">
-                        <h1 class="font-weight-light">
-                            <%= recipes[i].title %>
-                        </h1>
-                        <p>
-                            <%= recipes[i].description %>
-                        </p>
-                        <p>
-                            <%= recipes[i].ingredients %>
-                        </p>
+                        <h1 class="font-weight-light"><%= recipes[i].title %></h1>
+                        <p><%= recipes[i].description %></p>
+                        <p><%= recipes[i].ingredients %></p>
                         <a href="recipes/<%= recipes[i]._id %>" class="btn btn-primary">Call to action</a>
                     </div>
                 </div>
+            
+                </div>
+                
+                <% 
+            
+        } 
+    
+    } 
+    else{ 
+        %>
+            <h1>Recipes not available</h1>
+        <% 
+   
+    } 
+
+    %>
+   
     </div>
-    <% } } else{ %>
-        <h1>Recipes not available</h1>
-        <% } %>
-            </div>
 <!--Footer-->
 <%- include('../layouts/footer.ejs') %>

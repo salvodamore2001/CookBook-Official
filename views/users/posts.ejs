@@ -28,7 +28,20 @@
                             <div class="text-muted fst-italic mb-2">Posted by Admin</div>
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                        <figure class="mb-4">
+                            <%
+                            if(recipes.image !== undefined && recipes.image !== ''){
+                                %>
+                                <img src="<%= recipes.image %>" alt="..." class="img-fluid rounded mb-4 mb-lg-0">
+                                <%
+                            }
+                            else{
+                                %>
+                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Image Recipe" class="img-fluid rounded mb-4 mb-lg-0">
+                                <%
+                            }
+                        %>
+                        </figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p><%= recipes.description %></p>

@@ -377,7 +377,7 @@ try {
     const uploadRecipeImage = async(req,res)=>{
         try {
             
-            var imagePath = '/imgaes';
+            var imagePath = '../public/images';
             imagePath = imagePath+'/'+req.file.filename;
 
             res.send({success:true,msg:'Recipe Image upload successfully!',path:imagePath});

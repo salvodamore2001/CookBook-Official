@@ -348,10 +348,16 @@ try {
         
         try {
             
+            var image = '';
+            if(req.body.image !== undefined){
+                image = req.body.image;
+            }
+
             const recipe = new Recipe({
                 title: req.body.title,
                 description: req.body.description,
-                ingredients: req.body.ingredients
+                ingredients: req.body.ingredients,
+                image:image
             });
 
             const recipeData = await recipe.save();
@@ -369,7 +375,16 @@ try {
     }
 
     const uploadRecipeImage = async(req,res)=>{
-        
+        try {
+            
+            var imagePath = '../public/img';
+            imagePath = imagePath+'/'+req.body.image;
+
+            res.send({success:true,msg:'Recipe Image upload successfully!',path:imagePath});
+
+        } catch (error) {
+            res.send({success:false,msg:error.message});
+        }
     }
 
 module.exports = {

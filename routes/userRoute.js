@@ -67,8 +67,8 @@ user_route.post('/forget-password',userController.resetPassword);
 
 user_route.get('/public-recipe',userController.loadRecipeDashboard);
 
-user_route.post('/public-recipe',userController.addRecipe);
+user_route.post('/public-recipe',upload.single('image'),userController.addRecipe);
 
-user_route.post('/upload-post-image',upload.single('image'),userController.uploadRecipeImage)
+user_route.post('/upload-post-image',upload.single('image'),userController.uploadRecipeImage);
 
 module.exports = user_route;

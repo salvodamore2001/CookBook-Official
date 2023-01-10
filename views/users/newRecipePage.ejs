@@ -41,7 +41,7 @@
       
               <div class="col-12">
                 <label for="title" class="form-label">Recipe Name</label>
-                <input type="text" name="title" id="title" class="form-control" required>
+                <input type="text" name="title" id="title" class="form-control" >
               </div>
               
               <div class="col-12">
@@ -62,7 +62,7 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
                   Upload Image
                 </button>
-                <input type="hidden" name="recipe_image" id="recipe_image">
+                <input type="hidden" name="image" id="image">
               </div>
       
               <div class="col-12">
@@ -87,7 +87,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="uploadForm">
+      <form id="uploadForm" enctype="multipart/form-data">
       <div class="modal-body">
         <input type="file" name="image" required> 
       </div>
@@ -100,7 +100,37 @@
   </div>
 </div>
 
+<script>
 
+$(document).ready(function(){
+
+  $('uploadForm'),submit(function(event){
+      event.preventDefault();
+
+      $.ajax({
+          url:"/upload-post-image",
+          type:"POST",
+          data: new FormData(this),
+          contentType:false,
+          cache:false,
+          processData:false,
+          success:function(data){
+            if (data.success == true) {
+              $('#image').val(data.path);
+              alert(data.msg);
+              $('uploadModal').modal('hide');
+            } else {
+              alert(data.msg);
+            }
+          }
+      });
+
+  });
+
+});
+
+
+</script>
 <!--Scrip Bootstrap-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

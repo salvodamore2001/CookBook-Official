@@ -348,11 +348,16 @@ try {
         
         try {
             
+            var image = '';
+            if(req.body.image !== undefined){
+                image = req.body.image;
+            }
+
             const recipe = new Recipe({
                 title: req.body.title,
                 description: req.body.description,
                 ingredients: req.body.ingredients,
-                recipe_image: req.file.filename
+                image:image
             });
 
             const recipeData = await recipe.save();
@@ -369,6 +374,19 @@ try {
 
     }
 
+    const uploadRecipeImage = async(req,res)=>{
+        try {
+            
+            var imagePath = '../public/images';
+            imagePath = imagePath+'/'+req.file.filename;
+
+            res.send({success:true,msg:'Recipe Image upload successfully!',path:imagePath});
+
+        } catch (error) {
+            res.send({success:false,msg:error.message});
+        }
+    }
+
 module.exports = {
     loadRegister,
     insertUser,
@@ -383,7 +401,8 @@ module.exports = {
     forgetPasswordLoad,
     resetPassword,
     loadRecipeDashboard,
-    addRecipe
+    addRecipe,
+    uploadRecipeImage
     //editLoad,
     //updateProfile
 }

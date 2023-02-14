@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CookBook - Recipes</title>
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../assets/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/styleHome.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <%- include('../layouts/navbar.ejs') %>
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1"><%= recipes.title %></h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted by Admin</div>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4">
+                            <%
+                            if(recipes.image !== undefined && recipes.image !== ''){
+                                %>
+                                <img src="<%= recipes.image %>" alt="..." class="img-fluid rounded mb-4 mb-lg-0">
+                                <%
+                            }
+                            else{
+                                %>
+                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Image Recipe" class="img-fluid rounded mb-4 mb-lg-0">
+                                <%
+                            }
+                        %>
+                        </figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p><%= recipes.description %></p>
+                        </section>
+                        <section class="mb-5">
+                            <h2 class="fw-bolder mb-1" >Ingredients:</h2>
+                            <p><%= recipes.ingredients %></p>
+                        </section>
+                    </article>
+                    <!-- Comments section-->
+                    <section class="mb-5">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <!-- Comment form-->
+                                <h5>Leave a comment</h5>
+                                <form class="mb-4" id="comment-form">
+                                    <input type="hidden" name="recipe_id" id="recipe_id" value="<%= recipes._id %>">
+                                    <input type="text" name="username"  id="username" placeholder="Enter your name" class="form-control mb-3">
+
+                                    <textarea class="form-control" name="comment" id="comment" required rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+
+                                    <input type="submit" class="btn btn-primary mt-3" value="Submit">
+
+                                </form>
+
+                                <p class="com-status" style="color:green"></p>
+                                <!-- Comment with nested comments-->
+                                <%
+                                    if(recipes.comments.length >=0){
+                                    recipes.comments = recipes.comments.reverse();    
+                                    recipes.comments.forEach(function(comment){
+                                        %>
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold"><%= comment.username %></div>
+                                                <%= comment.comment %>
+                                            </div>
+                                        </div>
+                                        <%
+                                    });
+                                }
+                                %>
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+        </div>
+        <div class="footer-mine">
+            <%- include('../layouts/footer.ejs') %>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('#comment-form').submit(function(event){
+                    event.preventDefault();
+
+                    var formData = $(this).serialize();
+
+                    $.ajax({
+                        url:"/add-comment",
+                        type:"POST",
+                        data:formData,
+                        success:function(data){
+                            $('.com-status').text(data.msg);
+                            setTimeout(function(){
+                                $('.com-status').text('');
+                            },5000);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

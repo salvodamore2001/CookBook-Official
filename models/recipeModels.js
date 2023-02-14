@@ -14,9 +14,13 @@ const recipeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    recipe_image:{
+    image:{
         type:String,
-        required:true
+        default:''
+    },
+    comments:{
+        type:Object,
+        default:{}
     }
 });
 
